@@ -1,0 +1,16 @@
+#!/bin/csh -f
+./clean
+if (-l data) then
+  rm -f data
+endif
+ln -sf ../src/data .
+
+
+set cmd = ( cmake ../src/ )
+echo $cmd
+$cmd
+if ( $status != 0 ) then
+  echo "Error while running cmake!"
+  exit(1)
+endif
+make -j4
