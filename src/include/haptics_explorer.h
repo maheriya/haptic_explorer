@@ -5,8 +5,8 @@
 #include <dvia_common.h>
 #include <gtkmm.h>
 #include <iostream>
-#include "hci.hpp"           // HCI - BLE Scanner
-#include "gatt.hpp"          // Gatt - BLE connection and transfer
+//#include "ble.hpp"           // HCI - BLE Scanner
+//#include "gatt.hpp"          // Gatt - BLE connection and transfer
 
 using namespace std;
 

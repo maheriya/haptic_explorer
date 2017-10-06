@@ -15,7 +15,7 @@
 //
 #define HAPTIC_BAND1       "Adafruit Bluefruit LE"
 #define HAPTIC_BAND2       "DVIA"
-#define DEBUG              2
+#define DEBUG              4
 #define SEND_TO_BLUEZ      1
 
 #define GUI_ENABLED        1

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>hapticsExplorer-Release@build</name>
+	<name>hapticsExplorer-Debug@build</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -43,7 +43,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.build.arguments</key>
-					<value>-j8</value>
+					<value></value>
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.make.core.buildLocation</key>
@@ -91,7 +91,7 @@
 				</dictionary>
 				<dictionary>
 					<key>org.eclipse.cdt.core.errorOutputParser</key>
-					<value>org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;</value>
+					<value>org.eclipse.cdt.core.GmakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;</value>
 				</dictionary>
 			</arguments>
 		</buildCommand>
@@ -114,72 +114,12 @@
 			<location>/home/maheriya/Projects/haptics_explorer/src</location>
 		</link>
 		<link>
-			<name>[Subprojects]</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Subprojects]/hapticsExplorer</name>
-			<type>2</type>
-			<location>/home/maheriya/Projects/haptics_explorer/src</location>
-		</link>
-		<link>
 			<name>[Targets]</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>
 		<link>
 			<name>[Targets]/[exe] explorer</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] explorer/</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] explorer/Source Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] explorer/Source Files/haptics_explorer.cpp</name>
-			<type>1</type>
-			<location>/home/maheriya/Projects/haptics_explorer/src/explorer/haptics_explorer.cpp</location>
-		</link>
-		<link>
-			<name>[Targets]/[exe] explorer/Source Files/main.cpp</name>
-			<type>1</type>
-			<location>/home/maheriya/Projects/haptics_explorer/src/explorer/main.cpp</location>
-		</link>
-		<link>
-			<name>[Targets]/[exe] explorer/Source Files/hci.cpp</name>
-			<type>1</type>
-			<location>/home/maheriya/Projects/haptics_explorer/src/explorer/hci.cpp</location>
-		</link>
-		<link>
-			<name>[Targets]/[exe] explorer/Source Files/dvia_sender.cpp</name>
-			<type>1</type>
-			<location>/home/maheriya/Projects/haptics_explorer/src/explorer/dvia_sender.cpp</location>
-		</link>
-		<link>
-			<name>[Targets]/[exe] explorer/Header Files</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] explorer/CMake Rules</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] explorer/Resources</name>
-			<type>2</type>
-			<locationURI>virtual:/virtual</locationURI>
-		</link>
-		<link>
-			<name>[Targets]/[exe] explorer/Object Files</name>
 			<type>2</type>
 			<locationURI>virtual:/virtual</locationURI>
 		</link>

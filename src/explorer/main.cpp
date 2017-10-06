@@ -12,7 +12,6 @@ static GMutex obj_mutex;     // used to make sure object data is accessed proper
 gboolean cbSendData(gpointer data);
 
 
-//----------------------------- vvvvvv From dvia.cpp
 static dviaSender sender;
 pthread_t sender_thread;
 static GAsyncQueue* blerspsem; // used between proc and sender
@@ -34,13 +33,6 @@ static void* sender_thread_func(void *tid) {
     pthread_exit(NULL);
 }
 
-//----------------------------- ^^^^^^ From dvia.cpp
-void catch_function(int)
-{
-    cerr << "\nInterrupted!\n";
-}
-
-
 int main(int argc, char **argv) {
 
     blereqsem = g_async_queue_new(); // sender will ask for more data when ready (push); explorer waits for it (pop)
@@ -53,9 +45,9 @@ int main(int argc, char **argv) {
         exit(-1);
     }
 
-	auto app = Gtk::Application::create(argc, argv, "dvia.haptics.explorer");
+    auto app = Gtk::Application::create(argc, argv, "dvia.haptics.explorer");
 
-    //Load the Glade file and instantiate its widgets:
+    // Load the Glade file and instantiate its widgets:
     auto refBuilder = Gtk::Builder::create();
     try {
         refBuilder->add_from_file("data/explorer.glade");
@@ -103,7 +95,6 @@ gboolean cbSendData(gpointer data) {
   }
 #endif
   if (explorer->SendContinuously)
-	  explorer->sendData();
+      explorer->sendData();
   return TRUE;
 }
-

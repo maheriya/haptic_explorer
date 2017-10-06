@@ -1,0 +1,91 @@
+## Following is the output of the recent scan of the haptic band:
+
+Primary services:
+Start: 0001 End:  0007 UUID: 1800
+  org.bluetooth.service.generic_access: Generic Access
+  Characteristic: 2a00
+   Start: 0002  End: 0003
+   Flags: Read Write 
+   Value at handle: 3
+
+  Characteristic: 2a01
+   Start: 0004  End: 0005
+   Flags: Read 
+   Value at handle: 5
+
+  Characteristic: 2a04
+   Start: 0006  End: 0007
+   Flags: Read 
+   Value at handle: 7
+
+
+Start: 0008 End:  000b UUID: 1801
+  org.bluetooth.service.generic_attribute: Generic Attribute
+  Characteristic: 2a05
+   Start: 0009  End: 000b
+   Flags: Indicate 
+   Value at handle: 10
+   CCC: (000b) 0000
+
+
+Start: 000c End:  0013 UUID: 00001530-1212-efde-1523-785feabcd123
+  Unknown
+  Characteristic: 00001532-1212-efde-1523-785feabcd123
+   Start: 000d  End: 000e
+   Flags: Write (without response) 
+   Value at handle: 14
+
+  Characteristic: 00001531-1212-efde-1523-785feabcd123
+   Start: 000f  End: 0011
+   Flags: Write Notify 
+   Value at handle: 16
+   CCC: (0011) 0000
+
+  Characteristic: 00001534-1212-efde-1523-785feabcd123
+   Start: 0012  End: 0013
+   Flags: Read 
+   Value at handle: 19
+
+
+Start: 0014 End:  001e UUID: 180a
+  org.bluetooth.service.device_information: Device Information
+  Characteristic: 2a29
+   Start: 0015  End: 0016
+   Flags: Read 
+   Value at handle: 22
+
+  Characteristic: 2a24
+   Start: 0017  End: 0018
+   Flags: Read 
+   Value at handle: 24
+
+  Characteristic: 2a28
+   Start: 0019  End: 001a
+   Flags: Read 
+   Value at handle: 26
+
+  Characteristic: 2a26
+   Start: 001b  End: 001c
+   Flags: Read 
+   Value at handle: 28
+
+  Characteristic: 2a27
+   Start: 001d  End: 001e
+   Flags: Read 
+   Value at handle: 30
+
+
+Start: 001f End:  ffff UUID: 6e400001-b5a3-f393-e0a9-e50e24dcca9e
+  Unknown
+  Characteristic: 6e400003-b5a3-f393-e0a9-e50e24dcca9e
+   Start: 0020  End: 0023
+   Flags: Notify 
+   Value at handle: 33 ===> (0x21) UART RX
+   CCC: (0023) 0000
+
+  Characteristic: 6e400002-b5a3-f393-e0a9-e50e24dcca9e
+   Start: 0024  End: ffff
+   Flags: Write (without response) Write 
+   Value at handle: 37 ===> (0x25) UART TX
+
+

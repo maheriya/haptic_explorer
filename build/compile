@@ -1,9 +1,11 @@
 #!/bin/csh -f
+setenv LibBlepp_DIR      /usr/local/libblepp/lib/CMake
+
 ./clean
 if (-l data) then
   rm -f data
 endif
-ln -sf ../src/data .
+ln -s ../src/data .
 
 
 set cmd = ( cmake ../src/ )
@@ -13,4 +15,4 @@ if ( $status != 0 ) then
   echo "Error while running cmake!"
   exit(1)
 endif
-make -j4
+make -j8
