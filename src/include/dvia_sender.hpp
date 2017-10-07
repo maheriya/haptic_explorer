@@ -19,7 +19,7 @@
 
 #include <blepp/logging.h>
 #include <blepp/pretty_printers.h>
-#include <blepp/blestatemachine.h> //for UUID. FIXME mofo
+#include <blepp/blestatemachine.h>
 #include <blepp/lescan.h>
 
 #include <iostream>
@@ -31,16 +31,6 @@
 #include <unistd.h>
 using namespace std;
 using namespace BLEPP;
-
-//#if DEBUG>1
-////#include <opencv2/core/utility.hpp>  // for getTick*()
-//#include <opencv2/core/core.hpp>  // for getTick*()
-//#endif
-
-//#include "ble.hpp"           // HCI - BLE Scanner
-//#include "gatt.hpp"          // Gatt - BLE connection and transfer
-
-#define TX_WR_HANDLE 0x0025  // was 0x0027 in the old firmware
 
 using namespace std;
 

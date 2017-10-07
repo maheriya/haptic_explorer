@@ -39,14 +39,6 @@ void dviaSender::stop(void) {
     stopBle();
 }
 
-// TEMP
-void tmp_sender(Characteristic c) {
-    // Sending data: x:127, depth:  0, cksum= 0x12
-    // Bluetooth packet to send:
-    // 21 4f 00 7f 00 00 ff ff 00 00 00 12
-    uint8_t data[12] = {0x21, 0x4f, 0x00, 0x7f, 0x00, 0x00, 0xff, 0xff, 0x00, 0x00, 0x00, 0x12};
-    c.write_request(data, 12);
-}
 
 int dviaSender::initBle(void) {
     const struct timespec Tble = {0, 500000000};
@@ -214,8 +206,8 @@ int dviaSender::initBle(void) {
 int dviaSender::sendToBle(objectData_t& dataToSend) {
     try {
         const uint8_t* data = (const uint8_t*) &dataToSend;
-        //uart_tx_char.write_request(data, 12);
-        gatt.send_write_request(TX_WR_HANDLE, data, sizeof(dataToSend));
+        uart_tx_char.write_request(data, sizeof(dataToSend));
+        //gatt.send_write_request(TX_WR_HANDLE, data, sizeof(dataToSend));
         gatt.read_and_process_next(); // wait for response. Need to setup cb_write_response
         // TODO: Wait for write_response?? Can be done. Not done right now.
     }
