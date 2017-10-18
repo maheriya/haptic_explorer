@@ -26,7 +26,7 @@ void HapticsExplorer::init(void) {
 
     // Get Adjustments handles
     CONNECT_SCALE(XLocation);
-    CONNECT_SCALE(YHeight);
+    //CONNECT_SCALE(YHeight);
     CONNECT_SCALE(ZDepth);
 
     // Switch 1
@@ -42,6 +42,21 @@ void HapticsExplorer::init(void) {
     SendImmediately = false;
     cout << "SendImmediately is set for " << SendImmediately << endl;
     m_switch_SendImmediately->property_active().signal_changed().connect(sigc::mem_fun(*this, &HapticsExplorer::on_SendImmediately_active_changed));
+
+    // Radio Buttons
+    m_ref_glade->get_widget("rd0", m_rd_ObjectType_0);
+    m_ref_glade->get_widget("rd1", m_rd_ObjectType_1);
+    m_ref_glade->get_widget("rd2", m_rd_ObjectType_2);
+    m_ref_glade->get_widget("rd3", m_rd_ObjectType_3);
+    m_rd_ObjectType_0->set_active();
+    ObjectType = ObjType_t::Object;
+    cout << "ObjectType is set to " << ObjectType << endl;
+    m_rd_ObjectType_0->signal_toggled().connect(sigc::mem_fun(*this, &HapticsExplorer::on_ObjectType_toggled));
+    m_rd_ObjectType_1->signal_toggled().connect(sigc::mem_fun(*this, &HapticsExplorer::on_ObjectType_toggled));
+    m_rd_ObjectType_2->signal_toggled().connect(sigc::mem_fun(*this, &HapticsExplorer::on_ObjectType_toggled));
+    m_rd_ObjectType_3->signal_toggled().connect(sigc::mem_fun(*this, &HapticsExplorer::on_ObjectType_toggled));
+
+
 
     initBLE();
 }
@@ -65,10 +80,10 @@ void HapticsExplorer::sendData() {
     bzero((char *) &data, sizeof(objectData_t));
     data.sop      = '!';
     data.pkt_type = 'O';
-    data.objs[0].obj   = ObjType_t::Object; // Object; // Stairs; // ...
+    data.objs[0].obj   = ObjectType; //ObjType_t::Stairs; // Object; // ...
 	data.objs[0].x     = XLocation;
 	data.objs[0].depth = ZDepth;
-    data.objs[1].obj   = ObjType_t::Object;
+    data.objs[1].obj   = ObjType_t::Object;  // Second object.
     data.objs[1].x     = 255;
     data.objs[1].depth = 255;
     for (int i = 0; i < (sizeof(objectData_t) - 1); i++)
@@ -78,10 +93,6 @@ void HapticsExplorer::sendData() {
 	g_print("Sending data: x:%3d, depth:%3d, cksum=%3d\n", data.objs[0].x, data.objs[0].depth, data.cksum);
     g_async_queue_push(blerspsem, (gpointer) gDONE); // Signal data availability to sender
 	g_mutex_unlock(&snd_mutex);
-//    g_print("objData: ");
-//	for (int i=0; i<sizeof(objectData_t); i++)
-//	    g_print(" 0x%02x", (unsigned char) ((char *) &data)[i]);
-//    g_print("\n");
 }
 
 void HapticsExplorer::doSendData() {
@@ -93,13 +104,6 @@ void HapticsExplorer::setSemaphores(GAsyncQueue* reqsem, GAsyncQueue* rspsem, GM
 	blerspsem = rspsem;
 	obj_mutex= mutex;
 }
-
-// Pass-through callback function
-//void
-//HapticsExplorer::set_cb_send_data2band(cb_send_data2band cb) {
-//    m_iconswindow->set_cb_send_data2band(cb);
-//}
-
 
 // Data validation: this app doesn't need specific checks or modification.
 // Kept for future upgrade possibility. Sample below
@@ -114,9 +118,9 @@ void HapticsExplorer::check_XLocation_valid_value() {
     m_adj_XLocation->set_value(XLocation);
 }
 
-void HapticsExplorer::check_YHeight_valid_value() {
-
-}
+//void HapticsExplorer::check_YHeight_valid_value() {
+//
+//}
 
 void HapticsExplorer::check_ZDepth_valid_value() {
 

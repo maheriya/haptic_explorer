@@ -47,7 +47,6 @@ public:
 
     void sendData();
     void doSendData();
-    //void set_cb_send_data2band(cb_send_data2band cb);
     void setSemaphores(GAsyncQueue* reqsem, GAsyncQueue* rspsem, GMutex& mutex);
     objectData_t& extractData() {
     	return data;
@@ -74,11 +73,11 @@ protected:
 
     // Check valid values
     void check_XLocation_valid_value();
-    void check_YHeight_valid_value();
+    //void check_YHeight_valid_value();
     void check_ZDepth_valid_value();
 
     ON_SCALE_CHANGE(XLocation)
-    ON_SCALE_CHANGE(YHeight)
+    //ON_SCALE_CHANGE(YHeight)
     ON_SCALE_CHANGE(ZDepth)
 
     void on_SendContinuously_active_changed() {
@@ -89,19 +88,37 @@ protected:
     	SendImmediately = m_switch_SendImmediately->get_active();
         cout << "SendImmediately changed: " << SendImmediately << endl;
     }
+    void on_ObjectType_toggled() {
+        if (m_rd_ObjectType_1->get_active())
+            ObjectType = ObjType_t::Stairs;
+        else if (m_rd_ObjectType_2->get_active())
+            ObjectType = ObjType_t::Door;
+        else if (m_rd_ObjectType_3->get_active())
+            ObjectType = ObjType_t::Person;
+        else // if (m_rd_ObjectType_0->get_active())
+            ObjectType = ObjType_t::Object;
+        cout << "ObjectType: " << ObjectType << endl;
+    }
 
     // Local variables
     Glib::RefPtr<Gtk::Builder>     m_ref_glade;
     Gtk::Button*                   m_btn_quit;
     Gtk::Button*                   m_btn_send;
     DECLARE_SCALE(XLocation, int);
-    DECLARE_SCALE(YHeight, int);
+    //DECLARE_SCALE(YHeight, int);
     DECLARE_SCALE(ZDepth, int);
 
 
     // Switches
     Gtk::Switch*                   m_switch_SendContinuously;
     Gtk::Switch*                   m_switch_SendImmediately;
+    // Radio
+    Gtk::RadioButton*              m_rd_ObjectType_0;
+    Gtk::RadioButton*              m_rd_ObjectType_1;
+    Gtk::RadioButton*              m_rd_ObjectType_2;
+    Gtk::RadioButton*              m_rd_ObjectType_3;
+    ObjType_t                      ObjectType; // object type
+
     objectData_t                   data;
     GAsyncQueue* blerspsem; // used between proc and sender
     GAsyncQueue* blereqsem; // used between proc and sender

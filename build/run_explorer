@@ -1,0 +1,11 @@
+#!/bin/csh -f
+if (! -l data) then
+  ln -s ../src/data .
+endif
+
+
+if (! -x ./explorer) then
+  echo "Executable ./explorer not found in `pwd`"
+  exit(1)
+endif
+sudo ./explorer

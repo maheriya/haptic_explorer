@@ -21,7 +21,7 @@
 #define GUI_ENABLED        1
 #define DEBUG_THREADS      0
 
-typedef enum { Object = 0, Stairs = 1, Curb = 2, Door = 3 } ObjType_t;
+typedef enum { Object = 0, Stairs = 1, Door = 2, Person = 3 } ObjType_t;
 
 // Total 12 bytes. Packed structure. Handles up to two objects.
 #define MAX_HAPTIC_OBJECTS  2 // maximum number of simultaneous objects rendered via haptics
