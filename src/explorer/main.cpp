@@ -3,6 +3,8 @@
 #include "dvia_sender.hpp"
 #include "haptics_explorer.h"
 
+// Period of the timer for sending data to the band
+#define TIMER_PERIOD 300
 using namespace std;
 
 static HapticsExplorer* explorer = nullptr;
@@ -69,7 +71,7 @@ int main(int argc, char **argv) {
     //explorer->set_cb_send_data2band(doSendData);
 
     int cbdata = 20;
-    int status = g_timeout_add (1000, cbSendData, &cbdata);
+    int status = g_timeout_add (TIMER_PERIOD, cbSendData, &cbdata);
     if (explorer)
         app->run(*explorer);
 
